@@ -109,12 +109,12 @@ namespace EditDistanceAlgorithm
             return bestGuess;
         }
 
-        static string[] loadDictionary()
+        static string[] loadDictionary(string filename)
         {
             Console.WriteLine("Loading dictionary...");
             List<string> words = new List<string>();
             
-            StreamReader reader = new StreamReader("dictionary.txt");
+            StreamReader reader = new StreamReader(filename);
             while (reader.EndOfStream == false)
             {
                 words.Add(reader.ReadLine().Trim());
@@ -127,7 +127,7 @@ namespace EditDistanceAlgorithm
 
         static void Main(string[] args)
         {
-            string[] dictionary = loadDictionary();
+            string[] dictionary = loadDictionary("dictionary.txt");
 
             while (true)
             {
